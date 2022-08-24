@@ -13,7 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Entity
-@Table(name = "user")
+@Table(name = "usuario")
 @Data @AllArgsConstructor @Builder
 public class User implements Serializable {
 	
