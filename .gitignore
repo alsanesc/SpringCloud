@@ -1,1 +1,7 @@
-/.metadata/
+.*
+**/.*
+**/target
+**/deps
+**/bin
+!.gitignore
+!**/.gitkeep
