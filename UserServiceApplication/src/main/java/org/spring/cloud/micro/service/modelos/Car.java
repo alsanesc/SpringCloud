@@ -5,10 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@Data @AllArgsConstructor @NoArgsConstructor @Builder
 public class Car {
-	
+
 	private String marca;
 	private String modelo;
+
+	private Long userId;
 
 }
