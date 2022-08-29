@@ -39,7 +39,7 @@ public class MotoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Moto> createCAr(@RequestBody Moto moto) {
+	public ResponseEntity<Moto> createMoto(@RequestBody Moto moto) {
 		Moto newMoto = motoService.createMoto(moto);
 		
 		return ResponseEntity.ok(newMoto);

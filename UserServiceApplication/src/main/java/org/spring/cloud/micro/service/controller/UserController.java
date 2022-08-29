@@ -3,6 +3,7 @@ package org.spring.cloud.micro.service.controller;
 import java.util.List;
 
 import org.spring.cloud.micro.service.entity.User;
+import org.spring.cloud.micro.service.modelos.Car;
 import org.spring.cloud.micro.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,12 @@ public class UserController {
 		User newUser = userService.createUser(user);
 		
 		return ResponseEntity.ok(newUser);
+	}
+	
+	@PostMapping(value = "/car/{userId}")
+	public ResponseEntity<Car> createCar(@PathVariable("userId") Long id, @RequestBody Car car) {
+		Car newCar = userService.createCar(id, car);
+		return ResponseEntity.ok(newCar);
 	}
 	
 }
