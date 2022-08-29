@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.spring.cloud.micro.service.entity.User;
 import org.spring.cloud.micro.service.modelos.Car;
+import org.spring.cloud.micro.service.modelos.Moto;
 import org.spring.cloud.micro.service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,12 @@ public class UserController {
 	public ResponseEntity<Car> createCar(@PathVariable("userId") Long id, @RequestBody Car car) {
 		Car newCar = userService.createCar(id, car);
 		return ResponseEntity.ok(newCar);
+	}
+	
+	@PostMapping(value = "/moto/{userId}")
+	public ResponseEntity<Moto> createMoto(@PathVariable("userId") Long id, @RequestBody Moto moto) {
+		Moto newMoto = userService.createMoto(id, moto);
+		return ResponseEntity.ok(newMoto);
 	}
 	
 }

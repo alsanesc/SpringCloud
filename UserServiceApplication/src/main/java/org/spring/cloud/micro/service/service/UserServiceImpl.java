@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.spring.cloud.micro.service.entity.User;
 import org.spring.cloud.micro.service.feignclients.CarFeignClient;
+import org.spring.cloud.micro.service.feignclients.MotoFeignClient;
 import org.spring.cloud.micro.service.modelos.Car;
+import org.spring.cloud.micro.service.modelos.Moto;
 import org.spring.cloud.micro.service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private CarFeignClient carFeignClient;
+	
+	@Autowired
+	private MotoFeignClient motoFeignClient;
 	
 	@Override
 	public List<User> getAll() {
@@ -39,6 +44,13 @@ public class UserServiceImpl implements UserService {
 		car.setUserId(userId);
 		Car newCar = carFeignClient.createCar(car);
 		return newCar;
+	}
+
+	@Override
+	public Moto createMoto(Long userId, Moto moto) {
+		moto.setUserId(userId);
+		Moto newMoto = motoFeignClient.createMoto(moto);
+		return newMoto;
 	}
 	
 }
