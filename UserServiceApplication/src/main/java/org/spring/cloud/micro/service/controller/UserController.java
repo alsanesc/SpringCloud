@@ -1,6 +1,7 @@
 package org.spring.cloud.micro.service.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.spring.cloud.micro.service.entity.User;
 import org.spring.cloud.micro.service.modelos.Car;
@@ -57,6 +58,13 @@ public class UserController {
 	public ResponseEntity<Moto> createMoto(@PathVariable("userId") Long id, @RequestBody Moto moto) {
 		Moto newMoto = userService.createMoto(id, moto);
 		return ResponseEntity.ok(newMoto);
+	}
+	
+	@GetMapping(value = "/car/moto/{userId}")
+	public ResponseEntity<Map<String, Object>> getUserAndVehicles(@PathVariable("userId") Long userId) {
+		Map<String, Object> mapResult = userService.getUserAndVehicles(userId);
+		
+		return ResponseEntity.ok(mapResult);
 	}
 	
 }
