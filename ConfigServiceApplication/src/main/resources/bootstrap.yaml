@@ -1,0 +1,12 @@
+server: 
+  port: 8080
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          default-data: config-server
+          uri: https://github.com/alsanesc/SpringCloud.git
+          searchPaths: config-data
+  application:
+    name: ConfigServiceApplication
