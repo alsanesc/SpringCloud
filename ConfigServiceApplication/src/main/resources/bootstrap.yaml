@@ -8,5 +8,6 @@ spring:
           default-data: config-server
           uri: https://github.com/alsanesc/SpringCloud.git
           searchPaths: config-data
+        bootstrap: true
   application:
     name: ConfigServiceApplication
